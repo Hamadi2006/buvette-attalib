@@ -7,46 +7,46 @@ Details du Pack
 <!-- Alerts container -->
 <div id="alerts" class="fixed top-4 right-4 z-50 max-w-md"></div>
 
-<div class="px-40 flex flex-1 justify-center py-14 mt-8 md:mt-12">
-          <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
+<div class="px-4 sm:px-8 md:px-16 lg:px-40 flex flex-1 justify-center py-8 sm:py-10 md:py-14 mt-4 sm:mt-6 md:mt-8 lg:mt-12">
+          <div class="layout-content-container flex flex-col max-w-full sm:max-w-[640px] md:max-w-[768px] lg:max-w-[960px] flex-1">
             <div class="@container">
-              <div class="flex flex-col gap-6 px-4 py-10 @[480px]:gap-8 @[864px]:flex-row">
-<div class="w-full max-w-3xl mx-auto relative">
+              <div class="flex flex-col gap-4 sm:gap-6 px-2 sm:px-4 py-6 sm:py-8 md:py-10 @[480px]:gap-8 @[864px]:flex-row">
+<div class="w-full max-w-full sm:max-w-lg md:max-w-2xl lg:max-w-3xl mx-auto relative">
   <img
     src="{{ asset('pack_images/' . $produit->image) }}"
     alt="Image du pack"
     class="w-full h-auto object-cover rounded-lg shadow-lg"
   />
   <!-- Availability Badge -->
-  <div class="absolute top-4 right-4">
+  <div class="absolute top-2 right-2 sm:top-4 sm:right-4">
     @if($produit->disponible)
-      <span class="bg-green-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+      <span class="bg-green-500 text-white text-xs sm:text-sm font-bold px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg">
         Disponible
       </span>
     @else
-      <span class="bg-red-500 text-white text-sm font-bold px-4 py-2 rounded-full shadow-lg">
+      <span class="bg-red-500 text-white text-xs sm:text-sm font-bold px-2 py-1 sm:px-4 sm:py-2 rounded-full shadow-lg">
         Épuisé
       </span>
     @endif
   </div>
 </div>
 
-                <div class="flex flex-col gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
-                  <div class="flex flex-col gap-2 text-left">
+                <div class="flex flex-col gap-4 sm:gap-6 @[480px]:min-w-[400px] @[480px]:gap-8 @[864px]:justify-center">
+                  <div class="flex flex-col gap-2 text-left px-2 sm:px-0">
                     <h1
-                      class="text-[#191510] text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
+                      class="text-[#191510] text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-[-0.033em] @[480px]:text-5xl @[480px]:font-black @[480px]:leading-tight @[480px]:tracking-[-0.033em]"
                     >
                         {{ $produit->nom }}
                 </h1>
-                    <h2 class="text-[#191510] text-sm font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
+                    <h2 class="text-[#191510] text-sm sm:text-base font-normal leading-normal @[480px]:text-base @[480px]:font-normal @[480px]:leading-normal">
                             {{ $produit->description }}
                     </h2>
                   </div>
-                  <form action="{{ route('ajouterPanier', $produit->id) }}" method="POST" class="add-to-cart-form">
+                  <form action="{{ route('ajouterPanier', $produit->id) }}" method="POST" class="add-to-cart-form px-2 sm:px-0">
                       @csrf
                       <button
                           type="submit"
-                          class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 @[480px]:h-12 @[480px]:px-5 bg-[#eed7be] text-[#191510] text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                          class="flex w-full sm:min-w-[84px] sm:max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-12 sm:h-10 px-6 sm:px-4 @[480px]:h-12 @[480px]:px-5 bg-[#eed7be] text-[#191510] text-base sm:text-sm font-bold leading-normal tracking-[0.015em] @[480px]:text-base @[480px]:font-bold @[480px]:leading-normal @[480px]:tracking-[0.015em] transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-amber-300 disabled:opacity-50 disabled:cursor-not-allowed"
                           data-item="{{ $produit->nom }}"
                           data-price="{{ $produit->prix }}"
                           aria-label="Ajouter {{ $produit->nom }} au panier"
@@ -58,8 +58,8 @@ Details du Pack
                 </div>
               </div>
             </div>
-            <h3 class="text-[#191510] text-lg font-bold leading-tight tracking-[-0.015em] px-4 pb-2 pt-4">What's Inside</h3>
-            <p class="text-[#191510] text-base font-normal leading-normal pb-3 pt-1 px-4">
+            <h3 class="text-[#191510] text-base sm:text-lg font-bold leading-tight tracking-[-0.015em] px-4 sm:px-4 pb-2 pt-4">What's Inside</h3>
+            <p class="text-[#191510] text-sm sm:text-base font-normal leading-normal pb-3 pt-1 px-4">
               {{ $produit->descriptionSecondaire }}
             </p>
           </div>

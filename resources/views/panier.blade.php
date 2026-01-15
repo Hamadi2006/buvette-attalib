@@ -76,7 +76,7 @@ Votre Panier
 </div>
 
 @else
-<div class="px-40 flex flex-1 justify-center py-14 mb-14">
+<div class="px-40 flex flex-1 justify-center py-14 mb-20 mt-16">
   <div class="layout-content-container flex flex-col max-w-[960px] flex-1">
     <div class="flex flex-wrap justify-between gap-3 p-4">
       <p class="text-[#191510] tracking-light text-[32px] font-bold leading-tight min-w-72">Votre Panier</p>
